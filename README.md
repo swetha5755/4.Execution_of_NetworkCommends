@@ -25,8 +25,8 @@ This commands includes
 <BR>
 • Other IP Commands e.g. show ip route etc.
 <BR>
-## Program:
-CLIENT:
+
+CLIENT
 ```
 import socket
 from pythonping import ping
@@ -40,7 +40,9 @@ while True:
  c.send(str(ping(hostname, verbose=False)).encode())
  except KeyError:
  c.send("Not Found".encode())
-SERVER:
+ ```
+SERVER
+```
 import socket
 s=socket.socket()
 s.connect(('localhost',8000))
@@ -49,9 +51,18 @@ while True:
  s.send(ip.encode())
  print(s.recv(1024).decode())
  ```
+ PROGRAM
+ ```
+ from scapy.all import*
+target = ["www.google.com"]
+result, unans = traceroute(target,maxttl=32)
+print(result,unans)
+```
  
 ## Output
-![Screenshot 2025-04-16 112544](https://github.com/user-attachments/assets/2d98bb07-1f5d-4239-a8bb-172b8bbd88d4)
+![Screenshot 2025-04-16 114247](https://github.com/user-attachments/assets/ad2fa5a7-42b8-4834-8e6a-6b081e51189c)
+![Screenshot 2025-04-16 114510](https://github.com/user-attachments/assets/5efd8461-63be-4287-bbe4-4eab1dd89fda)
+
 
 ## Result
 Thus Execution of Network commands Performed 
